@@ -232,9 +232,24 @@ table.lg{width:100%;border-collapse:collapse;font-size:13.5px}
 .lg td{padding:8px 12px 8px 0;border-top:1px solid var(--line);white-space:nowrap}
 .lg td.m{font:400 12.5px var(--mono)}
 .lg .st-d{color:#2c8a63}.lg .st-x{color:var(--coral)}.lg .st-f{color:var(--acc)}
-footer{padding:36px 32px 48px;border-top:1px solid var(--line);max-width:1324px;margin:0 auto;display:flex;gap:30px;justify-content:space-between;flex-wrap:wrap;color:var(--ink2);font-size:13.5px}
-footer b{font:500 26px/1 var(--serif);color:var(--ink)}
-footer p{margin:0;max-width:62ch}
+/* apple / resume.lakshya.uk style footer */
+footer{background:rgba(237,240,248,.72);border-top:1px solid var(--line);padding:56px 32px 42px;color:var(--ink2);font-size:12.5px;line-height:1.6}
+.ft-wrap{max-width:1260px;margin:0 auto}
+.ft-note{padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:28px;font-size:12.5px;color:var(--ink2);max-width:960px}
+.ft-note b{color:var(--ink);font-weight:600}
+.ft-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 28px;margin-bottom:34px}
+.ft-col h4{margin:0 0 12px;font:600 11.5px var(--sans);color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
+.ft-col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ft-col a{color:var(--ink2);text-decoration:none;transition:color .2s;cursor:pointer}
+.ft-col a:hover{color:var(--acc);text-decoration:underline}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap;gap:14px 24px;font-size:12px}
+.ft-legal{display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px}
+.ft-legal a{color:var(--ink2);text-decoration:none;transition:color .2s;cursor:pointer}
+.ft-legal a:hover{color:var(--ink);text-decoration:underline}
+.ft-legal span.sep{color:var(--line);user-select:none}
+.ft-loc{color:var(--ink2);font-weight:500;display:inline-flex;align-items:center;gap:6px}
+@media(max-width:880px){.ft-cols{grid-template-columns:repeat(2,1fr);gap:24px 20px}.ft-bot{flex-direction:column;align-items:flex-start}}
+@media(max-width:520px){.ft-cols{grid-template-columns:1fr;gap:20px}}
 /* responsive */
 #nav button.l{background:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink2);font-size:13px;cursor:pointer}
 #nav button.l:hover{color:var(--ink);border-color:var(--ink2)}
@@ -265,6 +280,18 @@ kbd{font:400 11px var(--mono);padding:1px 6px;border-radius:5px;background:rgba(
 .rpt dl{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 22px;margin:0}
 .rpt dt{font-size:12.5px;color:var(--ink2)}.rpt dd{margin:0;font:400 34px/1.1 var(--serif)}
 .rpt table{width:100%;border-collapse:collapse;font-size:13.5px}.rpt th{text-align:left;font-weight:500;color:var(--ink2);padding:6px 0}.rpt td{padding:6px 0;border-top:1px solid var(--line)}
+.doc-modal{padding:28px 32px}
+.doc-modal h3{margin:0 0 8px;font:400 30px/1.1 var(--serif);color:var(--ink)}
+.doc-modal .lead{font-size:14px;color:var(--ink2);margin:0 0 20px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.doc-modal h4{margin:22px 0 8px;font:600 12.5px var(--sans);color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
+.doc-modal p{margin:0 0 12px;font-size:13.5px;line-height:1.65;color:var(--ink2)}
+.doc-modal ul{margin:0 0 16px;padding-left:20px;font-size:13.5px;line-height:1.65;color:var(--ink2)}
+.doc-modal li{margin-bottom:6px}
+.doc-modal a{color:var(--acc);text-decoration:none}
+.doc-modal a:hover{text-decoration:underline}
+.doc-modal .box{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0;font-size:13px}
+.doc-modal .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:14px 0}
+@media(max-width:640px){.doc-modal .grid2{grid-template-columns:1fr}.doc-modal{padding:20px 18px}}
 #vw{position:fixed;inset:0;z-index:110;background:rgba(20,24,50,.66);backdrop-filter:blur(8px);display:grid;place-items:center;padding:3vh 3vw}
 #vw[hidden]{display:none}
 .vwc{width:min(920px,100%);height:min(88vh,100%);display:flex;flex-direction:column;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 40px 90px rgba(0,0,0,.4)}
@@ -474,9 +501,74 @@ footer.rv b{display:inline-block;transition:transform 1s}footer.rv:not(.in) b{tr
  <div class="tw" id="tabLed"><table class="lg"><thead><tr><th>Message</th><th>Parcel</th><th>Route</th><th>Bytes</th><th>Sent</th><th>Arrived</th><th>Resent</th><th>Status</th></tr></thead><tbody id="lgb"></tbody></table></div>
 </section>
 
-<footer>
- <b>Relay</b>
- <p>A packet-switched WAN simulation for a networking course. Routing is Dijkstra over queue-aware link costs, loss is retransmitted from the source after a timeout, and everything runs in your browser.</p>
+<footer role="contentinfo">
+ <div class="ft-wrap">
+  <div class="ft-note">
+   <b>Relay WAN Simulator</b> · A high-fidelity, client-side packet-switched Wide Area Network emulator. Visualizing Dijkstra dynamic link-state routing, queue-aware congestion, TCP Reno AIMD sawtooth dynamics, packet fragmentation, and resilient multi-region mesh failover. Designed &amp; engineered by <b>Lakshya</b>.
+  </div>
+  <div class="ft-cols">
+   <div class="ft-col">
+    <h4>Simulate &amp; Explore</h4>
+    <ul>
+     <li><a href="#how">How it works</a></li>
+     <li><a href="#lab">Interactive Network Lab</a></li>
+     <li><a href="#msgs">Phone Messaging View</a></li>
+     <li><a href="#ledger">Packet Ledger &amp; Traces</a></li>
+     <li><a id="ftScn">Scenarios Directory</a></li>
+     <li><a id="ftCmd">Command Palette <kbd>⌘K</kbd></a></li>
+    </ul>
+   </div>
+   <div class="ft-col">
+    <h4>Protocols &amp; Theory</h4>
+    <ul>
+     <li><a id="ftTcp">TCP Reno (AIMD) &amp; UDP</a></li>
+     <li><a id="ftDijk">Dijkstra Shortest Path</a></li>
+     <li><a id="ftBuf">Buffer &amp; Congestion Loss</a></li>
+     <li><a id="ftTtl">TTL &amp; Hop Limits</a></li>
+     <li><a id="ftFrag">Packet Fragmentation</a></li>
+     <li><a id="ftAck">Two-Way Handshake &amp; ACKs</a></li>
+    </ul>
+   </div>
+   <div class="ft-col">
+    <h4>Diagnostics &amp; Tools</h4>
+    <ul>
+     <li><a id="ftRep">Generate Session Report</a></li>
+     <li><a id="ftCsv">Export CSV Packet Trace</a></li>
+     <li><a id="ftPng">Capture Network Map (PNG)</a></li>
+     <li><a id="ft2d">Toggle 2D / 3D Isometric</a></li>
+     <li><a id="ftTopo">Switch Core Topologies</a></li>
+     <li><a href="/.well-known/security.txt" target="_blank">Security Policy (security.txt)</a></li>
+    </ul>
+   </div>
+   <div class="ft-col">
+    <h4>Lakshya &amp; Connect</h4>
+    <ul>
+     <li><a href="https://lakshya.uk" target="_blank" rel="noopener">Portfolio (lakshya.uk) ↗</a></li>
+     <li><a href="https://resume.lakshya.uk" target="_blank" rel="noopener">Résumé (resume.lakshya.uk) ↗</a></li>
+     <li><a href="https://github.com/lak-is-law/relay-wan" target="_blank" rel="noopener">GitHub Repository ↗</a></li>
+     <li><a href="https://github.com/lak-is-law" target="_blank" rel="noopener">GitHub Profile ↗</a></li>
+     <li><a id="ftContact">Contact Lakshya</a></li>
+     <li><a href="mailto:contact@lakshya.uk">Direct Email ↗</a></li>
+    </ul>
+   </div>
+  </div>
+  <div class="ft-bot">
+   <div>Copyright &copy; 2026 Lakshya. All rights reserved. Open-source under MIT License.</div>
+   <div class="ft-legal">
+    <a id="ftPrivacy">Privacy Policy</a>
+    <span class="sep">|</span>
+    <a id="ftTerms">Terms &amp; Conditions</a>
+    <span class="sep">|</span>
+    <a id="ftSitemap">Sitemap</a>
+    <span class="sep">|</span>
+    <a id="ftLegalContact">Contact Us</a>
+   </div>
+   <div class="ft-loc">
+    <span>&#127470;&#127475;</span>
+    <span>India &middot; Chennai</span>
+   </div>
+  </div>
+ </div>
 </footer>
 
 <div id="cp" hidden><div class="cpc"><input id="cpi" type="text" placeholder="Type a command, for example: cut, chaos, report" aria-label="Command"><ul id="cpl" role="listbox"></ul></div></div>
@@ -494,7 +586,7 @@ function openViewer(a){
  $('#vw').hidden=false;
  if(a.pdf&&a.file){const box=document.createElement('div');box.className='pgs';box.textContent='Loading pages...';const fb=$('#vwb').innerHTML;$('#vwb').innerHTML='';$('#vwb').appendChild(box);
   pdfPages(a.file,box).catch(()=>{if(!$('#vw').hidden)$('#vwb').innerHTML=fb})}}
-const closeViewer=()=>{$('#vw').hidden=true;$('#vwb').innerHTML=''};
+const closeViewer=()=>{$('#vw').hidden=true;$('#vwb').innerHTML='';if($('#vwd'))$('#vwd').style.display=''};
 const fsub=a=>(a.pages?a.pages+(a.pages>1?' pages':' page')+' · ':'')+(a.pdf?'PDF · ':'')+fmtB(a.size);
 let PJ;function loadPdf(){if(window.pdfjsLib)return Promise.resolve(window.pdfjsLib);return PJ||(PJ=new Promise((res,rej)=>{const B='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/',s=document.createElement('script');s.src=B+'pdf.min.js';s.onload=async()=>{try{const w=await(await fetch(B+'pdf.worker.min.js')).text();pdfjsLib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(new Blob([w],{type:'text/javascript'}));res(pdfjsLib)}catch(e){PJ=null;rej(e)}};s.onerror=()=>{PJ=null;rej()};document.head.appendChild(s)}))}
 async function pdfDoc(f){const L=await loadPdf();return L.getDocument({data:new Uint8Array(await f.arrayBuffer())}).promise}
@@ -1199,8 +1291,82 @@ function report(){
  const text='Relay session report\n'+k.map(([a,b])=>a+': '+b).join('\n')+'\n\nLinks\n'+ln.map(r=>r.join(', ')).join('\n')+(scn?'\n\nLast scenario: '+SCN[scn.i].t+'. '+watch():'');
  return{html,text};
 }
-function openReport(){const r=report();$('#vwn').textContent='Session report';const dl=$('#vwd');dl.href=URL.createObjectURL(new Blob([r.text],{type:'text/plain'}));dl.download='relay-report.txt';$('#vwx').innerHTML=I.x;$('#vwb').innerHTML='<div class="rpt">'+r.html+'</div>';$('#vw').hidden=false}
+function openReport(){const r=report();$('#vwn').textContent='Session report';const dl=$('#vwd');if(dl){dl.style.display='';dl.href=URL.createObjectURL(new Blob([r.text],{type:'text/plain'}));dl.download='relay-report.txt'} ;$('#vwx').innerHTML=I.x;$('#vwb').innerHTML='<div class="rpt">'+r.html+'</div>';$('#vw').hidden=false}
 $('#rptB').onclick=openReport;
+
+function openDoc(title, html){
+ $('#vwn').textContent = title;
+ const dl = $('#vwd'); if(dl) dl.style.display = 'none';
+ $('#vwx').innerHTML = I.x;
+ $('#vwb').innerHTML = '<div class="rpt doc-modal">' + html + '</div>';
+ $('#vw').hidden = false;
+}
+
+const DOCS = {
+ privacy: {
+  t: 'Privacy Policy',
+  h: `<h3>Privacy Policy</h3><p class="lead">Last updated: October 2026 &middot; Relay WAN Simulator</p><h4>1. Zero Telemetry &amp; 100% Client-Side Architecture</h4><p>Relay WAN Simulator is intentionally engineered to run <b>entirely inside your client browser engine</b>. Every network topology calculation, Dijkstra path derivation, packet payload, user chat message, synthetic image, and telemetry counter is processed and rendered locally via HTML5 Canvas, Web Audio, and ECMAScript.</p><h4>2. No Server-Side Logging or Packet Retention</h4><p>We do not operate backend packet processing servers. No message content, uploaded test media, route logs, or IP headers are transmitted to or stored on our servers.</p><h4>3. Zero Cookies &amp; Local Storage</h4><p>Relay does not set tracking cookies, cross-site beacons, advertising pixels, or persistent user identifiers. Simulation states reside strictly in ephemeral browser memory (RAM) and are discarded when the tab is closed or refreshed.</p><h4>4. Third-Party CDNs</h4><p>Relay loads font glyphs from Google Fonts and the PDF rendering engine from cdnjs/Cloudflare under standard HTTPS encryption. No personal data is collected or shared.</p><h4>5. Contact &amp; Privacy Inquiries</h4><p>If you have any questions or data concerns, contact Lakshya directly at <a href="mailto:contact@lakshya.uk">contact@lakshya.uk</a> or visit <a href="https://lakshya.uk" target="_blank">lakshya.uk</a>.</p>`
+ },
+ terms: {
+  t: 'Terms & Conditions',
+  h: `<h3>Terms &amp; Conditions</h3><p class="lead">Effective Date: October 2026 &middot; Relay WAN Simulator</p><h4>1. Permissive Open Source License</h4><p>Relay is open-source software released under the <b>MIT License</b>. You are welcome to inspect the source code, fork the repository on GitHub, adapt it for university courses, research papers, or engineering demonstrations.</p><h4>2. Educational &amp; Simulation Purpose</h4><p>Relay is designed as an educational model of Wide Area Network (WAN) packet switching, queue-aware dynamic routing (Dijkstra), TCP Reno congestion control (AIMD), buffer drop behavior, and fault-tolerant mesh topologies. The timings, latencies, and packet dimensions are illustrative simulations designed for interactive visualization.</p><h4>3. Disclaimer of Warranties</h4><p>THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NONINFRINGEMENT.</p><h4>4. Attribution &amp; Integrity</h4><p>Portions of this interface and conceptual architecture are copyright &copy; 2026 Lakshya. All trademarks, protocols, and RFC specifications mentioned belong to their respective standard bodies (IETF, IEEE).</p>`
+ },
+ sitemap: {
+  t: 'Sitemap · Directory',
+  h: `<h3>Sitemap &amp; Directory</h3><p class="lead">Complete hierarchical map of pages, tools, and simulation surfaces.</p><div class="grid2"><div class="box"><h4>Core Interfaces</h4><ul><li><a href="#how" onclick="closeViewer()">How Packet Switching Works</a></li><li><a href="#lab" onclick="closeViewer()">Interactive Network Lab (2D / 3D Canvas)</a></li><li><a href="#msgs" onclick="closeViewer()">User Endpoint Messaging Client</a></li><li><a href="#ledger" onclick="closeViewer()">Live Packet Ledger &amp; Event Logs</a></li><li><a href="/404.html">Custom 404 Packet Not Found Page</a></li><li><a href="/.well-known/security.txt" target="_blank">Vulnerability Disclosure (security.txt)</a></li></ul></div><div class="box"><h4>Network Topologies</h4><ul><li><b>National Core Mesh</b>: 6-node fault-tolerant interstate backbone</li><li><b>Resilient Ring</b>: Token/SONET-style dual-ring topology</li><li><b>Centralized Star Hub</b>: Single central router with spoke distribution</li></ul></div><div class="box"><h4>Simulation Protocols</h4><ul><li><b>TCP Reno</b>: Additive Increase / Multiplicative Decrease (AIMD)</li><li><b>UDP Mode</b>: Uncontrolled constant-rate datagram streams</li><li><b>Dynamic Routing</b>: Dijkstra shortest-path with queue-depth weights</li><li><b>Packet Dissector</b>: L3 IP &amp; L4 TCP/UDP inspection ticket</li></ul></div><div class="box"><h4>Author &amp; Connect</h4><ul><li><a href="https://lakshya.uk" target="_blank">Lakshya Official Portfolio ↗</a></li><li><a href="https://resume.lakshya.uk" target="_blank">Lakshya Curriculum Vitae / Résumé ↗</a></li><li><a href="https://github.com/lak-is-law/relay-wan" target="_blank">GitHub Repository (relay-wan) ↗</a></li><li><a href="mailto:contact@lakshya.uk">Direct Inquiries (contact@lakshya.uk)</a></li></ul></div></div>`
+ },
+ contact: {
+  t: 'Contact Lakshya',
+  h: `<h3>Contact Us &middot; Lakshya</h3><p class="lead">Reach out for feedback, collaborations, networking inquiries, or code questions.</p><div class="box"><p><b>Lakshya</b><br>Software Engineer &amp; Systems Builder<br>📍 Chennai, Tamil Nadu, India &#127470;&#127475;</p><p>Have feedback on Relay, questions about network simulation architecture, or want to connect? Feel free to write via email or explore my profiles below.</p></div><div class="grid2"><div class="box"><h4>Electronic Mail</h4><p><a href="mailto:contact@lakshya.uk" class="btn small" style="display:inline-block;padding:8px 16px;background:var(--ink);color:#fff;border-radius:999px;margin-top:6px;text-decoration:none">✉ Send Email to contact@lakshya.uk</a></p></div><div class="box"><h4>Web &amp; Portfolios</h4><ul><li>Personal Website: <a href="https://lakshya.uk" target="_blank">lakshya.uk ↗</a></li><li>Interactive Résumé: <a href="https://resume.lakshya.uk" target="_blank">resume.lakshya.uk ↗</a></li><li>GitHub Profile: <a href="https://github.com/lak-is-law" target="_blank">@lak-is-law ↗</a></li></ul></div></div><div class="box"><h4>Bug Reports &amp; Feature Requests</h4><p>Found an edge case with queue packet drops or link cuts? Please open an issue on GitHub: <a href="https://github.com/lak-is-law/relay-wan/issues" target="_blank">github.com/lak-is-law/relay-wan/issues ↗</a></p></div>`
+ },
+ tcp: {
+  t: 'TCP Reno Congestion Control (AIMD)',
+  h: `<h3>TCP Reno Congestion Control</h3><p class="lead">Additive Increase &middot; Multiplicative Decrease (AIMD)</p><p>In packet-switched networks, endpoints do not know global bottleneck capacities in advance. TCP Reno dynamically senses network headroom through packet delivery acknowledgements (ACKs) and losses.</p><h4>Mechanics in Relay:</h4><ul><li><b>Slow Start:</b> When the connection begins, the Congestion Window (<code>CWND</code>) starts small and doubles every RTT.</li><li><b>Additive Increase:</b> Once <code>CWND</code> reaches <code>ssthresh</code> (Slow-Start Threshold), <code>CWND</code> increases linearly by <code>+1/CWND</code> per acknowledged parcel, producing the iconic upward slope.</li><li><b>Multiplicative Decrease:</b> Upon parcel loss (buffer overflow drop or link cut timeout), TCP Reno cuts <code>ssthresh = max(2, CWND / 2)</code> and collapses <code>CWND</code>, generating the classic <i>sawtooth wave</i> visible in Relay's live CWND telemetry sparkline.</li></ul>`
+ },
+ dijk: {
+  t: 'Dijkstra Dynamic Shortest Path',
+  h: `<h3>Dijkstra Link-State Dynamic Routing</h3><p class="lead">Queue-Aware Shortest Path First (SPF) with real-time costs</p><p>Relay simulates adaptive link-state routing using Dijkstra's shortest path algorithm computed across all graph vertices.</p><h4>Dynamic Cost Metric:</h4><p>Instead of static hop-counts, the edge weight between nodes \(u\) and \(v\) dynamically incorporates instantaneous queue depths:</p><div class="box"><code>Cost(u, v) = BaseLatency(u, v) + (QueueLength(u &rarr; v) &times; 0.20)</code></div><p>When link traffic builds up on the primary trunk, the cost spikes, causing downstream routers to autonomously re-route following parcels along alternate paths (e.g., via secondary ring or mesh cross-connects).</p>`
+ },
+ buf: {
+  t: 'Buffer & Congestion Loss',
+  h: `<h3>Buffer Overflow &amp; Drop-Tail Queuing</h3><p class="lead">Finite router queue buffers and congestion collapse</p><p>Every router in Relay features an egress queue buffer for each connected transmission link. If parcels arrive at an egress interface faster than the transmission speed (serialization rate), parcels accumulate in the buffer.</p><h4>Drop Mechanics:</h4><ul><li>When the queue occupancy reaches the configured buffer limit (<code>qmax</code>, default 10 parcels), arriving packets are dropped (Drop-Tail policy).</li><li>The sender detects this via missing ACKs and retransmission timeouts, causing sender-side recovery or TCP window collapse.</li></ul>`
+ },
+ ttl: {
+  t: 'TTL & Hop Limits',
+  h: `<h3>Time-To-Live (TTL) &amp; Routing Loops</h3><p class="lead">Loop mitigation and packet expiration guarantees</p><p>During sudden topology shifts or link severance, transient routing loops can form before link-state updates converge across all routers. Without safeguards, looped packets would circulate indefinitely and consume network bandwidth.</p><h4>RFC 791 / IPv6 Hop Limit in Relay:</h4><ul><li>Every parcel starts with a maximum hop limit (TTL = 16).</li><li>Each router hop decrements the TTL by 1.</li><li>If TTL reaches 0 before arriving at the destination, the parcel is discarded (<code>ERR_TTL_EXPIRED</code>), protecting the network from infinite loops.</li></ul>`
+ },
+ frag: {
+  t: 'Packet Fragmentation',
+  h: `<h3>Packet Fragmentation &amp; MTU</h3><p class="lead">Maximum Transmission Unit (MTU) slicing and reassembly</p><p>Physical network links cannot carry arbitrarily large payloads in a single frame. Large files (such as 1 MB PDFs or hi-res images) must be sliced into manageable units.</p><h4>Simulation Parameters:</h4><ul><li>Relay uses a default MTU of <b>1,200 bytes</b> per parcel.</li><li>A 48 KB photo is fragmented into 40 distinct parcels, each tagged with its sequence index <code>[p / total]</code>.</li><li>Parcels can travel along divergent paths across the network mesh and arrive out-of-order; the destination phone reassembles the complete payload before rendering.</li></ul>`
+ },
+ ack: {
+  t: 'Two-Way Handshake & ACKs',
+  h: `<h3>Reliable Delivery &amp; Acknowledgements</h3><p class="lead">End-to-end delivery confirmation and sender timers</p><p>For reliable transport protocols, receiving a payload triggers a reverse-direction Acknowledgement (ACK) parcel sent back to the original source.</p><h4>Lifecycle in Relay:</h4><ul><li><b>Sent:</b> Source dispatches parcel and arms a retransmission timer.</li><li><b>Delivered:</b> Destination receives all fragments, verifies integrity, and dispatches an ACK.</li><li><b>ACK Arrives:</b> Sender cancels the retransmission timer and updates message status to delivered / read.</li><li><b>Timeout:</b> If an ACK is not received within the timeout window, the sender automatically re-queues the lost parcel.</li></ul>`
+ }
+};
+
+const wireFooter=()=>{
+ const bind=(id,fn)=>{const el=document.getElementById(id);if(el)el.onclick=fn};
+ bind('ftPrivacy',()=>openDoc(DOCS.privacy.t,DOCS.privacy.h));
+ bind('ftTerms',()=>openDoc(DOCS.terms.t,DOCS.terms.h));
+ bind('ftSitemap',()=>openDoc(DOCS.sitemap.t,DOCS.sitemap.h));
+ bind('ftContact',()=>openDoc(DOCS.contact.t,DOCS.contact.h));
+ bind('ftLegalContact',()=>openDoc(DOCS.contact.t,DOCS.contact.h));
+ bind('ftTcp',()=>{openDoc(DOCS.tcp.t,DOCS.tcp.h);$('#sProto').value='tcp';CFG.proto='tcp'});
+ bind('ftDijk',()=>openDoc(DOCS.dijk.t,DOCS.dijk.h));
+ bind('ftBuf',()=>openDoc(DOCS.buf.t,DOCS.buf.h));
+ bind('ftTtl',()=>openDoc(DOCS.ttl.t,DOCS.ttl.h));
+ bind('ftFrag',()=>openDoc(DOCS.frag.t,DOCS.frag.h));
+ bind('ftAck',()=>openDoc(DOCS.ack.t,DOCS.ack.h));
+ bind('ftScn',()=>{goto('lab');toast('Select any scenario from the lab header')});
+ bind('ftCmd',cpOpen);
+ bind('ftRep',openReport);
+ bind('ftCsv',csv);
+ bind('ftPng',()=>$('#pngB').click());
+ bind('ft2d',()=>$('#b2D').click());
+ bind('ftTopo',()=>{const nxt=CFG.topo==='mesh'?'ring':CFG.topo==='ring'?'star':'mesh';applyTopology(nxt)});
+};
+wireFooter();
 /* command menu */
 const goto=id=>document.getElementById(id).scrollIntoView({behavior:RM?'auto':'smooth'});
 const CMDS=()=>[['Go to the lab',()=>goto('lab')],['Go to messages',()=>goto('msgs')],['Go to the ledger',()=>goto('ledger')],['Back to the top',()=>scrollTo({top:0,behavior:'smooth'})],
