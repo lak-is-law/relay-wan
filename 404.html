@@ -8,32 +8,53 @@
 <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#1C2240;--ink2:#566087;--acc:#5B6EE1;--coral:#E4573F;--line:rgba(28,34,64,.14)}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.6 "Albert Sans",system-ui,sans-serif;background:radial-gradient(60% 50% at 30% 20%,#F6E9F2,transparent),radial-gradient(60% 60% at 80% 80%,#D8E1FA,transparent),#EDF0F8;display:grid;place-items:center;padding:24px;animation:in .8s both;overflow-x:hidden}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.6 "Albert Sans",system-ui,sans-serif;background:radial-gradient(60% 50% at 30% 20%,#F6E9F2,transparent),radial-gradient(60% 60% at 80% 80%,#D8E1FA,transparent),#EDF0F8;display:grid;place-items:center;padding:90px 24px 44px;animation:in .8s both;overflow-x:hidden}
 @keyframes in{from{opacity:0;transform:translateY(16px)}}
+
+#nav{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;padding:20px 32px}
+.logo{font:500 30px/1 "Cormorant Garamond",Georgia,serif;letter-spacing:-.01em;text-decoration:none;color:var(--ink);transition:opacity .2s}
+.logo:hover{opacity:.75}
+
 main{width:min(720px,100%);position:relative}
-.big{font:italic 300 clamp(120px,28vw,240px)/.88 "Cormorant Garamond",Georgia,serif;margin:0 0 6px;letter-spacing:-.03em;display:flex;align-items:baseline;user-select:none}
+.big{font:italic 300 clamp(120px,28vw,250px)/.88 "Cormorant Garamond",Georgia,serif;margin:0 auto 10px;letter-spacing:-.03em;display:flex;justify-content:center;align-items:baseline;text-align:center;user-select:none}
 .big span{display:inline-block;color:#1C2240;background:linear-gradient(125deg,#1C2240 0%,#5B6EE1 52%,#E88FB0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 14px 28px rgba(91,110,225,.24));animation:fl 4s ease-in-out infinite}
 .big span:nth-child(2){animation-delay:-1.3s;background:linear-gradient(125deg,#324082 0%,#697CE8 50%,#E4573F 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .big span:nth-child(3){animation-delay:-2.6s;background:linear-gradient(125deg,#5B6EE1 0%,#E88FB0 55%,#E4573F 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @keyframes fl{0%,100%{transform:none}50%{transform:translateY(-14px)}}
-h1{font:300 clamp(30px,5vw,44px)/1.1 "Cormorant Garamond",Georgia,serif;margin:8px 0 10px}
-p{color:var(--ink2);margin:0 0 14px}
-.line{height:46px;position:relative;margin:22px 0;border-bottom:1px dashed var(--line)}
+
+.head{text-align:center;margin-bottom:16px}
+.head h1{font:300 clamp(32px,5.2vw,46px)/1.08 "Cormorant Garamond",Georgia,serif;margin:8px 0 10px;letter-spacing:-.015em}
+.head p{color:var(--ink2);margin:0 auto;max-width:50ch;font-size:16px}
+
+.line{height:46px;position:relative;margin:24px 0;border-bottom:1px dashed var(--line)}
 .line i{position:absolute;bottom:-6px;left:0;width:12px;height:12px;border-radius:50%;background:var(--acc);animation:run 3.2s linear infinite}
 .line i.x{animation:runx 3.2s linear infinite;background:var(--coral)}
 @keyframes run{to{left:calc(100% - 12px)}}
 @keyframes runx{0%{left:0;opacity:1}55%{left:55%;opacity:1;transform:none}70%{left:57%;opacity:0;transform:translateY(34px) scale(.3)}100%{left:57%;opacity:0}}
+
 .box{background:rgba(252,250,245,.9);border-radius:18px;padding:18px 20px;font:13px/1.7 ui-monospace,Menlo,monospace;box-shadow:0 24px 50px -24px rgba(40,50,120,.4);word-break:break-all;margin-bottom:18px}
 .box b{color:var(--coral);font-weight:500}
-ul{margin:0 0 20px;padding:0;list-style:none;display:grid;gap:8px;font-size:14.5px}li{padding-left:22px;position:relative;color:var(--ink2)}li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--acc)}
+ul{margin:0 0 24px;padding:0;list-style:none;display:grid;gap:8px;font-size:14.5px}
+li{padding-left:22px;position:relative;color:var(--ink2)}
+li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--acc)}
 li b{color:var(--ink);font-weight:500}
-a.btn{display:inline-block;padding:12px 24px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;transition:transform .25s}a.btn:hover{transform:translateY(-2px)}a.btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.cta{display:flex;justify-content:center}
+a.btn{display:inline-block;padding:12px 28px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;transition:transform .25s,background .2s}
+a.btn:hover{background:var(--acc);transform:translateY(-2px)}
+a.btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+@media(max-width:600px){#nav{padding:16px 20px}body{padding-top:76px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style></head><body>
+<nav id="nav">
+ <a class="logo" href="/">Relay</a>
+</nav>
 <main>
  <p class="big" aria-label="404"><span>4</span><span>0</span><span>4</span></p>
- <h1>This parcel never reached its destination.</h1>
- <p>No router on this network knows the address you asked for. It may have been moved, or the link was mistyped.</p>
+ <div class="head">
+  <h1>This parcel never reached its destination.</h1>
+  <p>No router on this network knows the address you asked for. It may have been moved, or the link was mistyped.</p>
+ </div>
  <div class="line" aria-hidden="true"><i></i><i class="x" style="animation-delay:-1.6s"></i></div>
  <div class="box" role="status"><b>ERR_NO_ROUTE</b> &nbsp;TTL expired<br>Requested path: <span id="rp">/</span></div>
  <ul>
@@ -42,7 +63,7 @@ a.btn{display:inline-block;padding:12px 24px;border-radius:999px;background:var(
   <li><b>Probing leaves no map.</b> Guessing paths like /admin, /.env or /.git returns this same page. Relay is static and holds no secrets, logins or database.</li>
   <li><b>Strict headers are on.</b> CSP, HSTS, no framing (clickjacking), no MIME sniffing and no referrer leakage.</li>
  </ul>
- <a class="btn" href="/">Back to Relay</a>
+ <div class="cta"><a class="btn" href="/">Back to Relay</a></div>
 </main>
 <script>
 try{var p=decodeURIComponent(location.pathname+location.search).replace(/[\u0000-\u001f\u007f]/g,'');document.getElementById('rp').textContent=p.length>120?p.slice(0,120)+'…':p}catch(e){document.getElementById('rp').textContent='(unreadable path)'}
