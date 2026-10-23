@@ -3,15 +3,19 @@
 <meta name="robots" content="noindex"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#EDF0F8">
 <title>404 · Parcel not found · Relay</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#1C2240;--ink2:#566087;--acc:#5B6EE1;--coral:#E4573F;--line:rgba(28,34,64,.14)}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.6 "Albert Sans",system-ui,sans-serif;background:radial-gradient(60% 50% at 30% 20%,#F6E9F2,transparent),radial-gradient(60% 60% at 80% 80%,#D8E1FA,transparent),#EDF0F8;display:grid;place-items:center;padding:24px;animation:in .8s both;overflow-x:hidden}
 @keyframes in{from{opacity:0;transform:translateY(16px)}}
 main{width:min(720px,100%);position:relative}
-.big{font:italic 300 clamp(110px,28vw,260px)/.85 "Cormorant Garamond",Georgia,serif;margin:0;letter-spacing:-.04em;background:linear-gradient(120deg,var(--ink),var(--acc) 60%,#E88FB0);-webkit-background-clip:text;background-clip:text;color:transparent}
-.big span{display:inline-block;animation:fl 4s ease-in-out infinite}.big span:nth-child(2){animation-delay:-1.3s}.big span:nth-child(3){animation-delay:-2.6s}
-@keyframes fl{50%{transform:translateY(-12px)}}
+.big{font:italic 300 clamp(120px,28vw,240px)/.88 "Cormorant Garamond",Georgia,serif;margin:0 0 6px;letter-spacing:-.03em;display:flex;align-items:baseline;user-select:none}
+.big span{display:inline-block;color:#1C2240;background:linear-gradient(125deg,#1C2240 0%,#5B6EE1 52%,#E88FB0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 14px 28px rgba(91,110,225,.24));animation:fl 4s ease-in-out infinite}
+.big span:nth-child(2){animation-delay:-1.3s;background:linear-gradient(125deg,#324082 0%,#697CE8 50%,#E4573F 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.big span:nth-child(3){animation-delay:-2.6s;background:linear-gradient(125deg,#5B6EE1 0%,#E88FB0 55%,#E4573F 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@keyframes fl{0%,100%{transform:none}50%{transform:translateY(-14px)}}
 h1{font:300 clamp(30px,5vw,44px)/1.1 "Cormorant Garamond",Georgia,serif;margin:8px 0 10px}
 p{color:var(--ink2);margin:0 0 14px}
 .line{height:46px;position:relative;margin:22px 0;border-bottom:1px dashed var(--line)}
