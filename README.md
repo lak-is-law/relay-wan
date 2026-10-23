@@ -2,7 +2,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?logo=vercel)](https://focused-rutherford.vercel.app)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm_Noncommercial_1.0.0-blue.svg)](LICENSE)
 
 **Relay** is an interactive, browser-based wide-area network (WAN) and packet-switching simulator. Watch high-level messages and media attachments split into discrete parcels, route autonomously across network links using queue-aware Dijkstra shortest path calculations, navigate dynamic link failures and congestion, and reassemble in real-time at the destination.
 
@@ -114,4 +114,4 @@ vercel deploy --prod
 ---
 
 ## 📄 License
-MIT License. Created for computer networking exploration and interactive systems education.
+PolyForm Noncommercial License 1.0.0. Created for noncommercial computer networking exploration and interactive systems education. See [LICENSE](LICENSE) for full legal terms.
