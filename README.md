@@ -1,6 +1,6 @@
 # Relay · Packet-Switched WAN Simulator
 
-[![Deploy with Vercel](https://vercel.com/button)](https://relay-wan.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?logo=vercel)](https://focused-rutherford.vercel.app)
 [![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
