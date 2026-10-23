@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#EDF0F8">
+<title>404 · Parcel not found · Relay</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1C2240;--ink2:#566087;--acc:#5B6EE1;--coral:#E4573F;--line:rgba(28,34,64,.14)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.6 "Albert Sans",system-ui,sans-serif;background:radial-gradient(60% 50% at 30% 20%,#F6E9F2,transparent),radial-gradient(60% 60% at 80% 80%,#D8E1FA,transparent),#EDF0F8;display:grid;place-items:center;padding:24px;animation:in .8s both;overflow-x:hidden}
+@keyframes in{from{opacity:0;transform:translateY(16px)}}
+main{width:min(720px,100%);position:relative}
+.big{font:italic 300 clamp(110px,28vw,260px)/.85 "Cormorant Garamond",Georgia,serif;margin:0;letter-spacing:-.04em;background:linear-gradient(120deg,var(--ink),var(--acc) 60%,#E88FB0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.big span{display:inline-block;animation:fl 4s ease-in-out infinite}.big span:nth-child(2){animation-delay:-1.3s}.big span:nth-child(3){animation-delay:-2.6s}
+@keyframes fl{50%{transform:translateY(-12px)}}
+h1{font:300 clamp(30px,5vw,44px)/1.1 "Cormorant Garamond",Georgia,serif;margin:8px 0 10px}
+p{color:var(--ink2);margin:0 0 14px}
+.line{height:46px;position:relative;margin:22px 0;border-bottom:1px dashed var(--line)}
+.line i{position:absolute;bottom:-6px;left:0;width:12px;height:12px;border-radius:50%;background:var(--acc);animation:run 3.2s linear infinite}
+.line i.x{animation:runx 3.2s linear infinite;background:var(--coral)}
+@keyframes run{to{left:calc(100% - 12px)}}
+@keyframes runx{0%{left:0;opacity:1}55%{left:55%;opacity:1;transform:none}70%{left:57%;opacity:0;transform:translateY(34px) scale(.3)}100%{left:57%;opacity:0}}
+.box{background:rgba(252,250,245,.9);border-radius:18px;padding:18px 20px;font:13px/1.7 ui-monospace,Menlo,monospace;box-shadow:0 24px 50px -24px rgba(40,50,120,.4);word-break:break-all;margin-bottom:18px}
+.box b{color:var(--coral);font-weight:500}
+ul{margin:0 0 20px;padding:0;list-style:none;display:grid;gap:8px;font-size:14.5px}li{padding-left:22px;position:relative;color:var(--ink2)}li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--acc)}
+li b{color:var(--ink);font-weight:500}
+a.btn{display:inline-block;padding:12px 24px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;transition:transform .25s}a.btn:hover{transform:translateY(-2px)}a.btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body>
+<main>
+ <p class="big" aria-label="404"><span>4</span><span>0</span><span>4</span></p>
+ <h1>This parcel never reached its destination.</h1>
+ <p>No router on this network knows the address you asked for. It may have been moved, or the link was mistyped.</p>
+ <div class="line" aria-hidden="true"><i></i><i class="x" style="animation-delay:-1.6s"></i></div>
+ <div class="box" role="status"><b>ERR_NO_ROUTE</b> &nbsp;TTL expired<br>Requested path: <span id="rp">/</span></div>
+ <ul>
+  <li><b>Nothing from this URL was run.</b> The path above is printed as plain text, never as markup, so a crafted link cannot inject script (XSS).</li>
+  <li><b>No server details are shown.</b> No stack trace, file path or software version, so there is nothing to map for an attacker.</li>
+  <li><b>Probing leaves no map.</b> Guessing paths like /admin, /.env or /.git returns this same page. Relay is static and holds no secrets, logins or database.</li>
+  <li><b>Strict headers are on.</b> CSP, HSTS, no framing (clickjacking), no MIME sniffing and no referrer leakage.</li>
+ </ul>
+ <a class="btn" href="/">Back to Relay</a>
+</main>
+<script>
+try{var p=decodeURIComponent(location.pathname+location.search).replace(/[\u0000-\u001f\u007f]/g,'');document.getElementById('rp').textContent=p.length>120?p.slice(0,120)+'…':p}catch(e){document.getElementById('rp').textContent='(unreadable path)'}
+</script></body></html>
